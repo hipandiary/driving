@@ -1,6 +1,7 @@
 <template>
   <div>
-    <span v-for="(item, index) in topic[count].question" :key="index">{{item}}</span><br>
+    <span>{{count}}</span>
+    <span v-for="(item, index) in question[count]" :key="index">{{item}}</span><br>
     <button @click="substrac">上一题</button>
     <button @click="addup">下一题</button>
   </div>
@@ -22,7 +23,7 @@ export default {
   },
   methods: {
     addup() {
-      if (this.count <= 20) {
+      if (this.count < 19) {
         return this.count++;
       } else {
         alert("这是最后一题了");
@@ -40,8 +41,11 @@ export default {
     getdriving().then(res => {
       this.topic = res;
       console.log(this.topic);
-      console.log(this.topic);
-
+      for (let i = 0; i < this.topic.length; i++) {
+        this.question.push(res[i].question)
+      }
+      console.log(this.question[1]);
+      
       //  console.log(this.topic[0]);
       // console.log(this.topic);
       // console.log(this.question[0]);
