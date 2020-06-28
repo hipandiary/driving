@@ -1,13 +1,24 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app"> 
+     <NavBar class="home-nav">
+      <div slot="center">驾考答题</div>
+    </NavBar> 
+    <Home class="topic-home"></Home>
   </div>
 </template>
 
+<script>
+import NavBar from 'components/common/navbar/NavBar'
+import Home from 'views/home'
+export default {
+  name:'App',
+  components:{
+    NavBar,
+    Home
+  },
+ 
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -28,5 +39,19 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.home-nav{
+    background-color: skyblue;
+    color: white;
+    /* 固定顶部标题名 */
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+  }
+.topic-home{
+  padding: 50px;
+  border:5px solid yellow;
 }
 </style>
