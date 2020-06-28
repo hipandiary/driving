@@ -40,6 +40,8 @@ export default {
     getdriving().then(res => {
       this.topic = res;
       console.log(this.topic);
+      console.log(this.topic);
+
       //  console.log(this.topic[0]);
       // console.log(this.topic);
       // console.log(this.question[0]);
