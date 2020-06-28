@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span>{{count}}</span>
+    <span>{{count+1}}.</span>
     <span v-for="(item, index) in question[count]" :key="index">{{item}}</span><br>
     <button @click="substrac">上一题</button>
     <button @click="addup">下一题</button>
@@ -33,7 +33,7 @@ export default {
       if (this.count != 0) {
         return this.count--;
       } else {
-        alert("不能再最后了");
+        alert("不能再退后了");
       }
     }
   },
