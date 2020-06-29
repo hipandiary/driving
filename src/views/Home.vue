@@ -1,15 +1,15 @@
 <template>
 	<div>
 		<span v-if="condition">加载题目数据失败请刷新页面</span>
-		<div v-else>
+		<div v-else >
 			<span>{{count+1}}</span>
 			<span
 				v-for="(item,index) in question[count]"
 				:key="index.id"
 			>{{item}}</span>
 			<br />
-			<div v-if="options[count][0]== ''">{{answer[count]}}</div>
-			<div v-else>
+			<div v-if="options[count][0]== ''" class="mT">{{answer[count]}}</div>
+			<div v-else class="mT">
 				<div
 					v-for="(items, index) in options[count]"
 					:key="index.id"
@@ -99,5 +99,12 @@ export default {
 button {
   padding: 5px;
   margin: 20px;
+}
+.mT {
+  margin-top: 20px;
+  line-height: 24px;
+}
+input {
+  margin-right: 10px;
 }
 </style>
