@@ -1,7 +1,10 @@
 <template>
   <div>
     <span>{{count+1}}.</span>
-    <span v-for="(item, index) in question[count]" :key="index">{{item}}</span><br>
+    <span v-for="item in question[count]" :key="item.id">{{item}}</span><br>
+    <label for="options" v-for="(items, index) in options[count]" :key="index.id">
+      <input type="radio" id="options">{{items}}
+    </label><br>
     <button @click="substrac">上一题</button>
     <button @click="addup">下一题</button>
   </div>
@@ -41,11 +44,30 @@ export default {
     getdriving().then(res => {
       this.topic = res;
       console.log(this.topic);
-      for (let i = 0; i < this.topic.length; i++) {
+     /* 获取题目 */
+      for (let i = 0; i < res.length; i++) {
         this.question.push(res[i].question)
       }
       console.log(this.question[1]);
+
+      /* 获取答案 */
+      for (let i = 0; i < res.length; i++) {
+          this.answer.push(res[i].answer)
+      }
+      console.log(this.answer);
       
+      /* 获取选项 */
+      for (let i = 0; i < res.length; i++) {
+        /* 先把四个选项数据放入一个数组 */
+        let a1 = []
+        for (let j = 0; j < 1; j++) { 
+          a1.push(res[i].option1,res[i].option2,res[i].option3,res[i].option4)
+        }
+        /* 然后再把选项数组放入options */
+       this.options.push(a1)
+      }
+      console.log(this.options[1]);
+
       //  console.log(this.topic[0]);
       // console.log(this.topic);
       // console.log(this.question[0]);
