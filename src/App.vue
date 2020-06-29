@@ -9,7 +9,7 @@
 
 <script>
 import NavBar from 'components/common/navbar/NavBar'
-import Home from 'views/home'
+import Home from 'views/Home'
 export default {
   name:'App',
   components:{
