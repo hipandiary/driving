@@ -5,7 +5,7 @@
       <span>{{count+1}}.</span>
       <span v-for="(item,index) in question[count]" :key="index.id">{{item}}</span>
       <br />
-      <div v-for="(items, index) in options[count]" :key="index.id">
+      <div class="options" v-for="(items, index) in options[count]" :key="index.id">
         <input type="radio" id="options" name="options" />
         {{items}}
         <br />
@@ -95,6 +95,13 @@ export default {
 </script>
 
 <style scoped>
+.options{
+  width: 50rem;
+  margin-left: 23rem;
+  margin-top: 1rem;
+  text-align: left;
+  /* border: 1px solid yellow; */
+}
 button {
   margin: 20px;
   padding: 5px;
