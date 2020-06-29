@@ -9,8 +9,9 @@ export function request(config){
   return res.data.result.result.list;
   },error => {
   // Do something with response error
-  return console.log("请求失败",error);
-  ;
+  
+  return Promise.reject(error)
+  
   });
 
   return instance(config)
