@@ -53,6 +53,6 @@ export default {
 }
 .topic-home {
   padding: 50px;
-  border: 5px solid yellow;
+  /* border:5px solid yellow; */
 }
 </style>

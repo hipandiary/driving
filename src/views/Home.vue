@@ -96,6 +96,13 @@ export default {
 </script>
 
 <style scoped>
+.options{
+  width: 50rem;
+  margin-left: 23rem;
+  margin-top: 1rem;
+  text-align: left;
+  /* border: 1px solid yellow; */
+}
 button {
   padding: 5px;
   margin: 20px;
