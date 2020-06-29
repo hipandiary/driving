@@ -37,6 +37,7 @@ export default {
         return this.count++;
       } else {
         alert("这是最后一题了");
+
       }
     },
     substrac() {
