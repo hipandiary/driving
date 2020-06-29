@@ -9,7 +9,7 @@
 
 <script>
 import NavBar from 'components/common/navbar/NavBar'
-import Home from 'views/home'
+import Home from 'views/Home'
 export default {
   name:'App',
   components:{
@@ -21,11 +21,12 @@ export default {
 </script>
 <style>
 #app {
+  color: #2c3e50;
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
@@ -33,25 +34,25 @@ export default {
 }
 
 #nav a {
-  font-weight: bold;
   color: #2c3e50;
+  font-weight: bold;
 }
 
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-.home-nav{
-    background-color: skyblue;
-    color: white;
-    /* 固定顶部标题名 */
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 10;
-  }
-.topic-home{
+.home-nav {
+/* 固定顶部标题名 */
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  color: white;
+  background-color: skyblue;
+}
+.topic-home {
   padding: 50px;
-  border:5px solid yellow;
+  border: 5px solid yellow;
 }
 </style>
