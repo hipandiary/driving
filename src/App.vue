@@ -24,7 +24,10 @@ export default {
   color: #2c3e50;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-
+  margin: auto;
+  width: 50%;
+  height: auto;
+  /* border: 0.2em solid yellow; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -52,7 +55,7 @@ export default {
   background-color: skyblue;
 }
 .topic-home {
-  padding: 50px;
+  padding-top: 3.5em;
   /* border:5px solid yellow; */
 }
 </style>

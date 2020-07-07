@@ -2,14 +2,20 @@
   <div>
     <span v-if="condition">加载题目数据失败请刷新页面</span>
     <div v-else>
-      {{$store.state.name}}
-      <span>{{count+1}}.</span>
-      <span v-for="(item,index) in question[count]" :key="index.id">{{item}}</span>
-      <br />
-      <div v-if="options[count][0]== ''" class="mT">{{answer[count]}}</div>
+      <!-- {{$store.state.name}} -->
+      <div class="question">
+        <span>{{count+1}}.</span>
+        <span v-for="(item,index) in question[count]" :key="index.id">{{item}}</span>
+        <br />
+      </div>
+      <div v-if="options[count][0]== ''" class="mT" >
+        <input type="radio" name="options" value="对" @click="getRadioVal(items,count)"/>对
+        <input type="radio" name="options"  value="错" @click="getRadioVal(items,count)"/>错
+        <!-- {{answer[count]}} -->
+      </div>
       <div v-else class="mT">
         <div class="options" v-for="(items, index) in options[count]" :key="index.id">
-          <input type="radio" id="options" name="options"/>
+          <input type="radio" id="options" name="options" :value="items" @click="getRadioVal(items,count)"/>
           {{items}}
         </div>
         <br />
@@ -33,11 +39,22 @@ export default {
       question: [],
       options: [],
       count: 0,
+      score:0,
       condition: false
     };
   },
   methods: {
+     getRadioVal (value,id) {
+       const ques = value.slice(0,1)
+       if (ques != this.answer[id]) {
+         alert("答错了")
+       }else{
+         alert("答对了")
+       }
+    },
+
     addup() {
+      
       if (this.count < 19) {
         return this.count++;
       } else {
@@ -114,22 +131,29 @@ export default {
 </script>
 
 <style scoped>
+.question{
+  width: 90%;
+  margin-left: 0.5em;
+  text-align: left;
+  /* border: 0.2em solid yellow; */
+
+}
 .options {
-  width: 50rem;
-  margin-left: 23rem;
+  width: 80%;
+  margin-left: 1rem;
   margin-top: 1rem;
   text-align: left;
-  /* border: 1px solid yellow; */
+  /* border: 0.2rem solid yellow; */
 }
 button {
-  padding: 5px;
-  margin: 20px;
+  padding: 0.31em;
+  margin: 3em 2em  ;
 }
 .mT {
   margin-top: 20px;
   line-height: 24px;
 }
 input {
-  margin-right: 10px;
+  margin-right: 0.3em;
 }
 </style>
